@@ -139,7 +139,7 @@ var geolocation = {
                 // always truthy before we call into native
                 timeoutTimer.timer = true;
             }
-            exec(win, fail, 'Geolocation', 'getLocation', [options.enableHighAccuracy, options.maximumAge]);
+            exec(win, fail, 'geolocation', 'getLocation', [options.enableHighAccuracy, options.maximumAge]);
         }
         return timeoutTimer;
     },
@@ -190,7 +190,7 @@ var geolocation = {
             successCallback(pos);
         };
 
-        exec(win, fail, 'Geolocation', 'addWatch', [id, options.enableHighAccuracy]);
+        exec(win, fail, 'geolocation', 'addWatch', [id, options.enableHighAccuracy]);
 
         return id;
     },
@@ -203,7 +203,7 @@ var geolocation = {
         if (id && timers[id] !== undefined) {
             clearTimeout(timers[id].timer);
             timers[id].timer = false;
-            exec(null, null, 'Geolocation', 'clearWatch', [id]);
+            exec(null, null, 'geolocation', 'clearWatch', [id]);
         }
     }
 };
